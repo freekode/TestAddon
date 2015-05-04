@@ -1,0 +1,172 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+    ..\..\FrameXML\UI.xsd">
+  <Script File="lua/cli.lua"/>
+  <Script File="lua/main.lua"/>
+    
+  <Frame name="TestAddon_MainFrame"
+         parent="UIParent"
+         hidden="false"
+         enableMouse="true"
+         movable="true">
+
+    <Size x="63" y="50"/>
+    <Anchors>
+      <Anchor point="TOPLEFT">
+        <Offset x="20" y="-90"/>
+      </Anchor>
+    </Anchors>
+
+    <Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background"
+              edgeFile="Interface\Tooltips\UI-Tooltip-Border"
+              tile="true">
+      <TileSize>
+        <AbsValue val="16"/>
+      </TileSize>
+      <EdgeSize>
+        <AbsValue val="16"/>
+      </EdgeSize>
+      <BackgroundInsets>
+        <AbsInset left="4" right="3" top="4" bottom="3"/>
+      </BackgroundInsets>
+      <Color r="0.2" g="0.2" b="0.2" a="0.7"/>
+    </Backdrop>
+
+    <Frames>
+    </Frames>
+
+    <Layers>
+      <Layer>
+        <FontString name="$parent_xString"
+                    inherits="SystemFont_Small"
+                    text="x = "
+                    justifyV="TOP"
+                    justifyH="RIGHT">
+
+          <Size x="0" y="10"/>
+          <Anchors>
+            <Anchor point="TOPLEFT">
+              <Offset x="5" y="-5"/>
+            </Anchor>
+          </Anchors>
+          <Color r="1" g="1" b="0" a="1"/>
+        </FontString>
+        <FontString name="$parent_yString"
+                    inherits="SystemFont_Small"
+                    text="y = "
+                    justifyV="TOP"
+                    justifyH="RIGHT">
+
+          <Size x="0" y="10"/>
+          <Anchors>
+            <Anchor point="TOPLEFT"
+                    relativeTo="$parent_xString"
+                    relativePoint="BOTTOMLEFT"/>
+          </Anchors>
+          <Color r="1" g="1" b="0" a="1"/>
+        </FontString>
+        <FontString name="$parent_azimuthString"
+                    inherits="SystemFont_Small"
+                    text="F = "
+                    justifyV="TOP"
+                    justifyH="RIGHT">
+
+          <Size x="0" y="10"/>
+          <Anchors>
+            <Anchor point="TOPLEFT"
+                    relativeTo="$parent_yString"
+                    relativePoint="BOTTOMLEFT"/>
+          </Anchors>
+          <Color r="1" g="1" b="0" a="1"/>
+        </FontString>
+        <FontString name="$parent_pitchString"
+                    inherits="SystemFont_Small"
+                    text="p = "
+                    justifyV="TOP"
+                    justifyH="RIGHT">
+
+          <Size x="0" y="10"/>
+          <Anchors>
+            <Anchor point="TOPLEFT"
+                    relativeTo="$parent_azimuthString"
+                    relativePoint="BOTTOMLEFT"/>
+          </Anchors>
+          <Color r="1" g="1" b="0" a="1"/>
+        </FontString>
+
+
+        <FontString name="$parent_xCoorNum"
+                    inherits="SystemFont_Small"
+                    text="0.0"
+                    justifyV="TOP"
+                    justifyH="RIGHT">
+
+          <Size x="0" y="10"/>
+          <Anchors>
+            <Anchor point="TOPLEFT"
+                    relativeTo="$parent_xString"
+                    relativePoint="TOPRIGHT">
+              <Offset x="5" y="0"/>
+            </Anchor>
+          </Anchors>
+          <Color r="1" g="1" b="0" a="1"/>
+        </FontString>
+        <FontString name="$parent_yCoorNum"
+                    inherits="SystemFont_Small"
+                    text="0.0"
+                    justifyV="TOP"
+                    justifyH="RIGHT">
+
+          <Size x="0" y="10"/>
+          <Anchors>
+            <Anchor point="TOPLEFT"
+                    relativeTo="$parent_xCoorNum"
+                    relativePoint="BOTTOMLEFT"/>
+          </Anchors>
+          <Color r="1" g="1" b="0" a="1"/>
+        </FontString>
+        <FontString name="$parent_azimuthNum"
+                    inherits="SystemFont_Small"
+                    text="0.0"
+                    justifyV="TOP"
+                    justifyH="RIGHT">
+
+          <Size x="0" y="10"/>
+          <Anchors>
+            <Anchor point="TOPLEFT"
+                    relativeTo="$parent_yCoorNum"
+                    relativePoint="BOTTOMLEFT"/>
+          </Anchors>
+          <Color r="1" g="1" b="0" a="1"/>
+        </FontString>
+        <FontString name="$parent_pitchNum"
+                    inherits="SystemFont_Small"
+                    text="0.0"
+                    justifyV="TOP"
+                    justifyH="RIGHT">
+
+          <Size x="0" y="10"/>
+          <Anchors>
+            <Anchor point="TOPLEFT"
+                    relativeTo="$parent_azimuthNum"
+                    relativePoint="BOTTOMLEFT"/>
+          </Anchors>
+          <Color r="1" g="1" b="0" a="1"/>
+        </FontString>
+      </Layer>
+    </Layers>
+
+
+    <Scripts>
+      <OnLoad function="onload"/>
+      <OnUpdate function="onupdate"/>
+      <OnMouseDown>
+        TestAddon_MainFrame:StartMoving();
+      </OnMouseDown>
+      <OnMouseUp>
+        TestAddon_MainFrame:StopMovingOrSizing();
+      </OnMouseUp>
+    </Scripts>
+
+  </Frame>
+</Ui>
