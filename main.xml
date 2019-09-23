@@ -10,7 +10,7 @@
          enableMouse="true"
          movable="true">
 
-    <Size x="63" y="50"/>
+    <Size x="63" y="40"/>
     <Anchors>
       <Anchor point="TOPLEFT">
         <Offset x="20" y="-90"/>
@@ -79,20 +79,7 @@
           </Anchors>
           <Color r="1" g="1" b="0" a="1"/>
         </FontString>
-        <FontString name="$parent_pitchString"
-                    inherits="SystemFont_Small"
-                    text="p = "
-                    justifyV="TOP"
-                    justifyH="RIGHT">
-
-          <Size x="0" y="10"/>
-          <Anchors>
-            <Anchor point="TOPLEFT"
-                    relativeTo="$parent_azimuthString"
-                    relativePoint="BOTTOMLEFT"/>
-          </Anchors>
-          <Color r="1" g="1" b="0" a="1"/>
-        </FontString>
+        
 
 
         <FontString name="$parent_xCoorNum"
@@ -139,20 +126,7 @@
           </Anchors>
           <Color r="1" g="1" b="0" a="1"/>
         </FontString>
-        <FontString name="$parent_pitchNum"
-                    inherits="SystemFont_Small"
-                    text="0.0"
-                    justifyV="TOP"
-                    justifyH="RIGHT">
-
-          <Size x="0" y="10"/>
-          <Anchors>
-            <Anchor point="TOPLEFT"
-                    relativeTo="$parent_azimuthNum"
-                    relativePoint="BOTTOMLEFT"/>
-          </Anchors>
-          <Color r="1" g="1" b="0" a="1"/>
-        </FontString>
+        
       </Layer>
     </Layers>
 
