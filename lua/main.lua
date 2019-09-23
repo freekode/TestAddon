@@ -19,20 +19,17 @@ end
 
 
 function updateCoor()
-    SetMapToCurrentZone();
+    local mapID = C_Map.GetBestMapForUnit("player")
 
-    local x, y = GetPlayerMapPosition("player")
+    local position = C_Map.GetPlayerMapPosition(mapID, "player")
     local azimuth = GetPlayerFacing()
-    local pitch = GetUnitPitch("player")
 
-    x = math.floor(x * 10000) / 100
-    y = math.floor(y * 10000) / 100
+    position.x = math.floor(position.x * 10000) / 100
+    position.y = math.floor(position.y * 10000) / 100
     azimuth = math.floor(azimuth * 1000) / 1000
-    pitch = math.floor(pitch * 100) / 100
-    
 
-    TestAddon_MainFrame_xCoorNum:SetText(x)
-    TestAddon_MainFrame_yCoorNum:SetText(y)
+
+    TestAddon_MainFrame_xCoorNum:SetText(position.x)
+    TestAddon_MainFrame_yCoorNum:SetText(position.y)
     TestAddon_MainFrame_azimuthNum:SetText(azimuth)
-    TestAddon_MainFrame_pitchNum:SetText(pitch)
 end
